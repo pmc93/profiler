@@ -1,0 +1,4 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.57	579848.9	6179911.21		0.0	0.5	Hummus	black	hummus
+118.57	579848.9	6179911.21		0.5	2.799999952316284	Sand	yellow	sand
+118.57	579848.9	6179911.21		2.799999952316284	4.0	Sand	yellow	sand

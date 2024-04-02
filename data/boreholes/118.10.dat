@@ -1,0 +1,6 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.10	580999.0	6179652.0	5.44	0.0	3.0	Sand	yellow	senglacial freshwater sand
+118.10	580999.0	6179652.0	5.44	3.0	13.0	Sand	yellow	glacial meltwater sands
+118.10	580999.0	6179652.0	5.44	13.0	16.5	Silt	#D9CE96	glacial meltwater silt
+118.10	580999.0	6179652.0	5.44	16.5	30.5	Clay	darkgoldenrod	glacial moraines (claytill)
+118.10	580999.0	6179652.0	5.44	30.5	33.5	Clay	deepskyblue	small belt clay, plastic clay

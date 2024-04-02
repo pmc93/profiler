@@ -1,0 +1,8 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.13	582660.91	6179476.43	2.5	0.0	2.0	Clay	darkgoldenrod	senglacial freshwaters
+118.13	582660.91	6179476.43	2.5	2.0	3.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.13	582660.91	6179476.43	2.5	3.0	9.0	Sand	yellow	glacial meltwater sands
+118.13	582660.91	6179476.43	2.5	9.0	10.0	Silt	#D9CE96	glacial meltwater silt
+118.13	582660.91	6179476.43	2.5	10.0	15.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.13	582660.91	6179476.43	2.5	15.0	19.600000381469727	Sand	yellow	glacial meltwater sands
+118.13	582660.91	6179476.43	2.5	19.600000381469727	20.0	Clay	darkgoldenrod	glacial moraines (claytill)

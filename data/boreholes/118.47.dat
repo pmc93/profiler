@@ -1,0 +1,26 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.47	582700.43	6180149.94	2.79	0.0	0.30000001192092896	Hummus	black	hummus
+118.47	582700.43	6180149.94	2.79	0.30000001192092896	0.6499999761581421	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	0.6499999761581421	1.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	1.0	1.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	1.5	2.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	2.0	2.5999999046325684	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	2.5999999046325684	3.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	3.0	3.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	3.5	4.099999904632568	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	4.099999904632568	4.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	4.5	5.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	5.0	5.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	5.5	6.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	6.0	6.75	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	6.75	7.199999809265137	Clay	#D9CE96	Glacial meltwater silts
+118.47	582700.43	6180149.94	2.79	7.199999809265137	7.5	Silt	#D9CE96	glacial meltwater silt
+118.47	582700.43	6180149.94	2.79	7.5	8.0	Silt	#D9CE96	glacial meltwater silt
+118.47	582700.43	6180149.94	2.79	8.0	8.5	Silt	#D9CE96	glacial meltwater silt
+118.47	582700.43	6180149.94	2.79	8.5	9.0	Silt	#D9CE96	glacial meltwater silt
+118.47	582700.43	6180149.94	2.79	9.0	9.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	9.5	10.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	10.0	10.5	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	10.5	11.0	Sand	yellow	glacial meltwater sands
+118.47	582700.43	6180149.94	2.79	11.0	11.5	Clay	darkgoldenrod	glacial moraines (claytill)
+118.47	582700.43	6180149.94	2.79	11.5	12.0	Clay	darkgoldenrod	glacial moraines (claytill)

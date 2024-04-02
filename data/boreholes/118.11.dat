@@ -1,0 +1,6 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.11	582553.68	6179375.62	2.5	0.0	1.0	Clay	darkgoldenrod	senglacial freshwaters
+118.11	582553.68	6179375.62	2.5	1.0	14.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.11	582553.68	6179375.62	2.5	14.0	21.0	Sand	yellow	glacial meltwater sands
+118.11	582553.68	6179375.62	2.5	21.0	24.5	Clay	darkgoldenrod	glacial moraines (claytill)
+118.11	582553.68	6179375.62	2.5	24.5	27.5	Clay	deepskyblue	small belt clay, plastic clay

@@ -1,0 +1,26 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.42	582380.0	6179619.0	6.74	0.0	0.20000000298023224	Hummus	black	hummus
+118.42	582380.0	6179619.0	6.74	0.20000000298023224	0.6000000238418579	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	0.6000000238418579	2.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	2.0	2.200000047683716	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	2.200000047683716	3.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	3.0	4.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	4.0	5.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	5.0	6.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	6.0	7.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	7.0	8.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	8.0	9.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	9.0	10.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	10.0	11.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	11.0	12.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	12.0	13.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	13.0	14.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	14.0	15.0	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	15.0	16.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	16.0	17.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	17.0	18.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	18.0	19.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	19.0	20.0	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	20.0	20.399999618530273	Sand	yellow	glacial meltwater sands
+118.42	582380.0	6179619.0	6.74	20.399999618530273	21.200000762939453	Clay	darkgoldenrod	glacial moraines (claytill)
+118.42	582380.0	6179619.0	6.74	21.200000762939453	22.799999237060547	Clay	darkgoldenrod	glacial moraines (claytill)

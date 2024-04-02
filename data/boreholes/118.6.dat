@@ -1,0 +1,5 @@
+id	utm_x	utm_y	elev	top_depths	bot_depths	lith_names	colors	lith_descriptions
+118.6	581302.0	6179286.0	7.0	0.0	2.0	Gravel	orange	gravel, sand and gravel
+118.6	581302.0	6179286.0	7.0	2.0	2.5	Clay	darkgoldenrod	clay, sand and gravel
+118.6	581302.0	6179286.0	7.0	2.5	4.0	Sand	yellow	sand
+118.6	581302.0	6179286.0	7.0	4.0	9.0	Sand	yellow	sand
