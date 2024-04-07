@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 __version__='0.0'
 setup(
-    name='biotsavartlaw',
-    author='Matthew P. Griffiths',
-    author_email='mpg@geo.au.dk',
+    name='profiler',
+    author='Paul McLachlan',
+    author_email='pm@geo.au.dk',
     packages=find_packages('src'),
     package_dir={'':'src'},
     install_requires=['numpy', 'matplotlib', 'contextily', 'pandas', 'utm', 'geopandas', 'textwrap'],
