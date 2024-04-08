@@ -9,6 +9,6 @@ setup(
     install_requires=['numpy', 'matplotlib', 'contextily', 'pandas', 'utm', 'geopandas', 'textwrap'],
     version=__version__,
     license='MIT',
-    description='generate magnetic fields in free space using biot savart law',
+    description='plot profiles of tem data',
     python_requires=">=3.8",
 )

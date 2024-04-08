@@ -843,9 +843,14 @@ class Plot:
 
     def TEMSounding(self, model_idx, sounding_idx, vmin=0, vmax=1000, ax=None):
 
+
         rhos = self.model.tem_models[model_idx]['rhos'][sounding_idx, :]
         depths = self.model.tem_models[model_idx]['depths'][sounding_idx, :]
         doi = self.model.tem_models[model_idx]['doi_con'][sounding_idx]
+        
+        if len(rhos) == len(depths):
+
+            depths = depths[:-1]
 
         self.plot1D(rhos, depths, doi, vmin=vmin, vmax=vmax, ax=ax)
 
@@ -1054,6 +1059,91 @@ class Plot:
             else:
                 if print_msg:
                     print('Borehole %s is %.3f km from profile, it was not included.' % (bh['id'], min_dist/1000))
+                    
+    
+    def addNMRSoundings(self, profile_idx, nmr_list, param, ax, vmin=1, vmax=1000, elev=None,
+                        log=True, cmap=plt.cm.viridis, n_bins=16, discrete_colors=False,
+                        search_radius=100, model_width=None, print_msg=False):
+        """
+
+        Parameters
+        ----------
+        bh_list : TYPE
+            DESCRIPTION.
+        ax : TYPE
+            DESCRIPTION.
+        bh_width : TYPE, optional
+            DESCRIPTION. The default is dists[-1]/100.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        xi = self.model.profiles[profile_idx]['xi']
+        yi = self.model.profiles[profile_idx]['yi']
+        dists = self.model.profiles[profile_idx]['distances']
+        elevs = self.model.profiles[profile_idx]['elev']
+
+        n_models = len(nmr_list)
+        
+        if model_width is None:
+            model_width = dists[-1] / 60
+
+        for nmr in nmr_list:
+
+            dist_loc, elev, min_dist, idx = self.findNearest(nmr, xi, yi,
+                                                             dists, elevs)
+
+            if min_dist < search_radius:
+                x1 = dist_loc - model_width/2
+                x2 = dist_loc + model_width/2
+
+                for i in range(nmr['n_layers']-1):
+                    verts = np.array(([x1, elev - nmr['top_depths'][i]],
+                                      [x2, elev - nmr['top_depths'][i]],
+                                      [x2, elev - nmr['bot_depths'][i]],
+                                      [x1, elev - nmr['bot_depths'][i]],
+                                      [x1, elev - nmr['top_depths'][i]]))
+
+                    nmr['colors'] = self.getColors(nmr[param],
+                                                   vmin=vmin, vmax=vmax,
+                                                   log=log, cmap=cmap,
+                                                   discrete_colors=discrete_colors)
+
+                    if nmr['bot_depths'][i] > nmr['doi']:
+                        p = Polygon(verts, facecolor=nmr['colors'][i],
+                                    alpha= 0.1, lw=0)
+
+                    else:
+                        p = Polygon(verts, facecolor=nmr['colors'][i],
+                                    lw=0)
+
+                    ax.add_patch(p)
+
+                verts = np.array(([x1, elev - nmr['top_depths'][0]],
+                                  [x2, elev - nmr['top_depths'][0]],
+                                  [x2, elev - nmr['bot_depths'][-1]],
+                                  [x1, elev - nmr['bot_depths'][-1]],
+                                  [x1, elev - nmr['top_depths'][0]]))
+
+                p = Polygon(verts, facecolor='none', edgecolor='k', lw=0.5)
+
+                ax.add_patch(p)
+                
+                if print_msg:
+                    print('\033[1mTEM sounding %s is %.3f km from profile, it was included.\033[0m' % (nmr['id'], min_dist/1000))
+                    
+
+            else:
+                if print_msg:
+                    print('TEM sounding %s is %.3f km from profile, it was not included.' % (nmr['id'], min_dist/1000))
+
+        if log:
+            vmin = np.log10(vmin)
+            vmax = np.log10(vmax)
+            
 
     def addTEMSoundings(self, profile_idx, model_idx, ax, vmin=1, vmax=1000, elev=None,
                         log=True, cmap=plt.cm.turbo, n_bins=16, discrete_colors=False,
