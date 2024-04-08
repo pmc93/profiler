@@ -6,7 +6,7 @@ setup(
     author_email='pm@geo.au.dk',
     packages=find_packages('src'),
     package_dir={'':'src'},
-    install_requires=['numpy', 'matplotlib', 'contextily', 'pandas', 'utm', 'geopandas', 'textwrap'],
+    install_requires=['numpy', 'matplotlib', 'contextily', 'pandas', 'utm', 'geopandas'],
     version=__version__,
     license='MIT',
     description='plot profiles of tem data',
