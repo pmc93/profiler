@@ -776,7 +776,7 @@ class Plot:
             x_doi.append(x_doi[0])
 
             ax.fill(np.array(x_doi),  np.array(doi), edgecolor="none",
-                    facecolor='w', alpha=0.9)
+                    facecolor='w', alpha=0.8)
 
         if dists is not None:
             ax.set_xlabel('Distance [m]\n')
@@ -1114,7 +1114,7 @@ class Plot:
 
                     if nmr['bot_depths'][i] > nmr['doi']:
                         p = Polygon(verts, facecolor=nmr['colors'][i],
-                                    alpha= 0.1, lw=0)
+                                    alpha= 0.3, lw=0)
 
                     else:
                         p = Polygon(verts, facecolor=nmr['colors'][i],
@@ -1212,7 +1212,7 @@ class Plot:
 
                     if sounding['bot_depths'][i] > sounding['doi']:
                         p = Polygon(verts, facecolor=sounding['colors'][i],
-                                    alpha= 0.1, lw=0)
+                                    alpha= 0.3, lw=0)
 
                     else:
                         p = Polygon(verts, facecolor=sounding['colors'][i],
