@@ -51,16 +51,6 @@ class InteractivePlotApp:
         self.load_button = ttk.Button(
             button_frame1, text="Add walkTEM Data", command=self.plotter.open_walkTEM_file)
         self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
-
-        self.load_button = ttk.Button(
-            button_frame1, text="Add Borehole Data", command=self.plotter.open_borehole_files)
-        self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
-
-        #self.load_button = ttk.Button(
-        #    button_frame1, text="Export .py",
-         #                            command=self.plotter.write_py)
-
-        #self.load_button.pack(side=tk.RIGHT, padx=10, pady=5)
         
         self.var2 = tk.IntVar()
         self.misfit_button = ttk.Checkbutton(button_frame1,
@@ -70,8 +60,22 @@ class InteractivePlotApp:
                                              command=self.misfit_selection)
 
         self.misfit_button.pack(side=tk.LEFT, padx=10, pady=5)
+
+        self.load_button = ttk.Button(
+            button_frame1, text="Add Borehole Data", command=self.plotter.open_borehole_files)
+        self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
         
+        self.load_button = ttk.Button(
+            button_frame1, text="Borehole Data from Jupiter", command=self.plotter.open_borehole_files)
+        self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
+
+        #self.load_button = ttk.Button(
+        #    button_frame1, text="Export .py",
+         #                            command=self.plotter.write_py)
+
+        #self.load_button.pack(side=tk.RIGHT, padx=10, pady=5)
         
+      
         button_frame2 = ttk.Frame(self.root)
         button_frame2.pack(fill=tk.BOTH, expand=True)
         
@@ -94,7 +98,7 @@ class InteractivePlotApp:
         self.xmin_entry = ttk.Entry(
             button_frame2, text=self.plotter.xmin, width=5)
         self.xmin_entry.pack(side=tk.LEFT, padx=10, pady=5)
-        
+
         label = tk.StringVar()
         label.set("x min")
         tk.Label(button_frame2, textvariable=label).pack(side=tk.LEFT)
@@ -104,7 +108,7 @@ class InteractivePlotApp:
         self.xmin_entry = ttk.Entry(
             button_frame2, text=self.plotter.xmin, width=5)
         self.xmin_entry.pack(side=tk.LEFT, padx=10, pady=5)
-        
+
         label = tk.StringVar()
         label.set("x min")
         tk.Label(button_frame2, textvariable=label).pack(side=tk.LEFT)
@@ -114,7 +118,7 @@ class InteractivePlotApp:
         self.xmin_entry = ttk.Entry(
             button_frame2, text=self.plotter.xmin, width=5)
         self.xmin_entry.pack(side=tk.LEFT, padx=10, pady=5)
-        
+
         label = tk.StringVar()
         label.set("x min")
         tk.Label(button_frame2, textvariable=label).pack(side=tk.LEFT)
@@ -128,16 +132,14 @@ class InteractivePlotApp:
         self.load_button = ttk.Button(
             button_frame2, text="Set Map Limits", command=self.open_TEM_file)
         self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
-        
-        
+
         self.load_button = ttk.Button(
             button_frame2, text="Reset Map Limits", command=self.open_TEM_file)
         self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
-        
 
         button_frame3 = ttk.Frame(self.root)
         button_frame3.pack(fill=tk.BOTH, expand=True)
-        
+
         self.drawing_button = ttk.Button(
             button_frame3, text="Toggle Profile Drawer",
             command=self.toggle_drawing_mode)
@@ -147,11 +149,11 @@ class InteractivePlotApp:
         self.snap_button = ttk.Checkbutton(
             button_frame3, text="Snap", variable=self.var1, onvalue=1,
             offvalue=0, command=self.snap_selection)
-        
+
         self.snap_button.pack(side=tk.LEFT, padx=10, pady=5)
-        
+
         self.var1.set(1)
-        
+
         self.open_shp_button = ttk.Button(
             button_frame3, text="Open Shape File",
             command=self.open_shp)
