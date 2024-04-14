@@ -19,14 +19,17 @@ import contextily as cx
 import textwrap
 from matplotlib import cm
 
+
 class Model:
 
     def __init__(self):
-        self.tem_models = []
+        self.ttem_models = []
+        self.stem_models = []
         self.profiles = []
         self.boreholes = []
 
-    def loadXYZ(self, xyz_path, return_mod_df=False, mod_name=None):
+    def loadXYZ(self, xyz_path, return_mod_df=False, mod_name=None,
+                model_type='tTEM'):
         """
 
         Parameters
@@ -141,8 +144,18 @@ class Model:
 
         if return_mod_df:
             tem_model['mod_df'] = mod_df
+            
+        if model_type == 'tTEM':
 
-        self.tem_models.append(tem_model)
+            self.ttem_models.append(tem_model)
+            
+        elif model_type == 'sTEM':
+            
+            self.stem_models.append(tem_model)
+            
+        else:
+            
+            print('Model type not recognized, no data loaded.')
         
     def combineModels(self, idx):
         
@@ -343,7 +356,7 @@ class Model:
 
         return zi
 
-    def createProfiles(self, model_idx, profile_idx='all', model_spacing=10, interp_radius=40):
+    def createProfiles(self, ttem_model_idx, profile_idx='all', model_spacing=10, interp_radius=40):
         """
 
         Parameters
@@ -379,12 +392,12 @@ class Model:
 
             xi, yi, dists = self.interpCoords(x, y, distance=model_spacing)
 
-            rhos = self.tem_models[model_idx]['rhos']
-            depths = self.tem_models[model_idx]['depths']
-            x = self.tem_models[model_idx]['x']
-            y = self.tem_models[model_idx]['y']
-            elev = self.tem_models[model_idx]['elev']
-            doi = self.tem_models[model_idx]['doi_standard']
+            rhos = self.ttem_models[ttem_model_idx]['rhos']
+            depths = self.ttem_models[ttem_model_idx]['depths']
+            x = self.ttem_models[ttem_model_idx]['x']
+            y = self.ttem_models[ttem_model_idx]['y']
+            elev = self.ttem_models[ttem_model_idx]['elev']
+            doi = self.ttem_models[ttem_model_idx]['doi_standard']
 
             n_layers = rhos.shape[1]
             n_models = len(xi)
@@ -395,11 +408,10 @@ class Model:
                                                 interp_radius=interp_radius)
 
             depths_new = np.repeat(depths[0, :][None, :], n_models, axis=0)
-            
+
             elev_new = self.interpIDW(x, y, elev, xi, yi, power=2,
                                       interp_radius=interp_radius)
-            
-            
+
             elev_new = self.interpLIN(dists, elev_new)
 
             doi_new = self.interpIDW(x, y, doi, xi, yi, power=2,
@@ -450,7 +462,7 @@ class Model:
 
         elif file_type == 'xlsx':
             for borehole_path in borehole_paths:
-                excel_file = pd.ExcelFile(borehole_paths)
+                excel_file = pd.ExcelFile(borehole_path)
                 sheet_names = excel_file.sheet_names
 
                 for sheet_name in sheet_names:
@@ -481,13 +493,15 @@ class Plot:
 
     def profileMap(self, ax=None, background='imagery'):
 
-        if background=='imagery':
+        if background == 'imagery':
             source = cx.providers.Esri.WorldImagery
-            tem_color = 'w'
+            ttem_color = 'w'
+            stem_color = 'w'
 
-        elif background=='osm':
+        elif background == 'osm':
             source = cx.providers.OpenStreetMap.Mapnik
-            tem_color = 'k'
+            ttem_color = 'k'
+            stem_color = 'w'
 
         else:
             print('Background not recognised, specify either "imagery" or "osm".')
@@ -497,17 +511,30 @@ class Plot:
         else:
             fig = ax.figure
 
-        for i in range(len(self.model.tem_models)):
+        for i in range(len(self.model.ttem_models)):
 
             if i == 0:
-                ax.scatter(self.model.tem_models[i]['x'],
-                           self.model.tem_models[i]['y'],
-                           marker='.', c=tem_color, s=1, label='TEM data')
+                ax.scatter(self.model.ttem_models[i]['x'],
+                           self.model.ttem_models[i]['y'],
+                           marker='.', c=ttem_color, s=1, label='tTEM data')
 
             else:
                 ax.scatter(self.model.tem_models[i]['x'],
                            self.model.tem_models[i]['y'],
-                           marker='.', c=tem_color, s=1)
+                           marker='.', c=ttem_color, s=1)
+
+        for i in range(len(self.model.stem_models)):
+
+            if i == 0:
+                ax.scatter(self.model.stem_models[i]['x'],
+                           self.model.stem_models[i]['y'],
+                           marker='.', c=stem_color, s=10, ec='k',
+                           label='sTEM data')
+
+            else:
+                ax.scatter(self.model.tem_models[i]['x'],
+                           self.model.tem_models[i]['y'],
+                           marker='.', c=ttem_color, s=10, ec='k')
 
         if len(self.model.profiles) > 10:
             colorscale = cm.get_cmap('jet', len(self.model.profiles))
@@ -526,7 +553,7 @@ class Plot:
                         label='Profile ' + str(i+1))
 
 
-        cx.add_basemap(ax, crs=self.model.tem_models[0]['epsg'],  source=source,
+        cx.add_basemap(ax, crs=self.model.ttem_models[0]['epsg'],  source=source,
                        attribution_size=2)
 
         #ax.ticklabel_format(useOffset=False, style='plain')
@@ -835,19 +862,24 @@ class Plot:
 
         if len(plot_title) != 0:
             ax.set_title(plot_title)
-            
+
         ax.set_aspect(scale)
 
         ax.grid(which='both')
         fig.tight_layout()
 
-    def TEMSounding(self, model_idx, sounding_idx, vmin=0, vmax=1000, ax=None):
+    def TEMSounding(self, model_type, model_idx, sounding_idx, vmin=0, vmax=1000, ax=None):
 
+        if model_type == 'tTEM':
+            rhos = self.model.ttem_models[model_idx]['rhos'][sounding_idx, :]
+            depths = self.model.ttem_models[model_idx]['depths'][sounding_idx, :]
+            doi = self.model.ttem_models[model_idx]['doi_con'][sounding_idx]
 
-        rhos = self.model.tem_models[model_idx]['rhos'][sounding_idx, :]
-        depths = self.model.tem_models[model_idx]['depths'][sounding_idx, :]
-        doi = self.model.tem_models[model_idx]['doi_con'][sounding_idx]
-        
+        else:
+            rhos = self.model.stem_models[model_idx]['rhos'][sounding_idx, :]
+            depths = self.model.stem_models[model_idx]['depths'][sounding_idx, :]
+            doi = self.model.stem_models[model_idx]['doi_con'][sounding_idx]
+
         if len(rhos) == len(depths):
 
             depths = depths[:-1]
@@ -991,7 +1023,7 @@ class Plot:
 
         ax.add_patch(p)
 
-    def addBoreholes(self, model_idx, ax, elev=None,
+    def addBoreholes(self, profile_idx, ax, elev=None,
                      search_radius=150, bh_width=None, add_label=False,
                      text_size=12, shift=5, print_msg=False):
         """
@@ -1011,19 +1043,19 @@ class Plot:
 
         """
 
-        xi = self.model.profiles[model_idx]['xi']
-        yi = self.model.profiles[model_idx]['yi']
-        dists = self.model.profiles[model_idx]['distances']
-        elevs = self.model.profiles[model_idx]['elev']
-        
+        xi = self.model.profiles[profile_idx]['xi']
+        yi = self.model.profiles[profile_idx]['yi']
+        dists = self.model.profiles[profile_idx]['distances']
+        elevs = self.model.profiles[profile_idx]['elev']
+
         if bh_width is None:
-            
+
             bh_width = dists[-1] / 40
 
         for bh in self.model.boreholes:
 
             dist_loc, elev, min_dist, idx = self.findNearest(bh, xi, yi,
-                                                                 dists, elevs)
+                                                             dists, elevs)
 
             if min_dist < search_radius:
                 x1 = dist_loc - bh_width/2
@@ -1055,12 +1087,11 @@ class Plot:
                             verticalalignment='top', fontsize=text_size)
                 if print_msg:
                     print('\033[1mBorehole %s is %.3f km from profile, it was included.\033[0m' % (bh['id'], min_dist/1000))
-            
+
             else:
                 if print_msg:
                     print('Borehole %s is %.3f km from profile, it was not included.' % (bh['id'], min_dist/1000))
-                    
-    
+
     def addNMRSoundings(self, profile_idx, nmr_list, param, ax, vmin=1, vmax=1000, elev=None,
                         log=True, cmap=plt.cm.viridis, n_bins=16, discrete_colors=False,
                         search_radius=100, model_width=None, print_msg=False):
@@ -1087,7 +1118,7 @@ class Plot:
         elevs = self.model.profiles[profile_idx]['elev']
 
         n_models = len(nmr_list)
-        
+
         if model_width is None:
             model_width = dists[-1] / 60
 
@@ -1145,7 +1176,7 @@ class Plot:
             vmax = np.log10(vmax)
             
 
-    def addTEMSoundings(self, profile_idx, model_idx, ax, vmin=1, vmax=1000, elev=None,
+    def addTEMSoundings(self, profile_idx, stem_model_idx, ax, vmin=1, vmax=1000, elev=None,
                         log=True, cmap=plt.cm.turbo, n_bins=16, discrete_colors=False,
                         search_radius=100, model_width=None, print_msg=False):
         """
@@ -1170,8 +1201,8 @@ class Plot:
         dists = self.model.profiles[profile_idx]['distances']
         elevs = self.model.profiles[profile_idx]['elev']
 
-        n_models = len(self.model.tem_models[model_idx]['x'])
-        
+        n_models = len(self.model.stem_models[stem_model_idx]['x'])
+
         if model_width is None:
             model_width = dists[-1] / 60
 
@@ -1181,18 +1212,18 @@ class Plot:
 
             sounding['id'] = str(i+1)
 
-            sounding['x'] = self.model.tem_models[model_idx]['x'][i]
-            sounding['y'] = self.model.tem_models[model_idx]['y'][i]
-            sounding['rhos'] = self.model.tem_models[model_idx]['rhos'][i]
-            sounding['depths'] = self.model.tem_models[model_idx]['depths'][i]
-            sounding['doi'] = self.model.tem_models[model_idx]['doi_con'][i]
+            sounding['x'] = self.model.stem_models[stem_model_idx]['x'][i]
+            sounding['y'] = self.model.stem_models[stem_model_idx]['y'][i]
+            sounding['rhos'] = self.model.stem_models[stem_model_idx]['rhos'][i]
+            sounding['depths'] = self.model.stem_models[stem_model_idx]['depths'][i]
+            sounding['doi'] = self.model.stem_models[stem_model_idx]['doi_con'][i]
             sounding['n_layers'] = len(sounding['rhos'])
             sounding['top_depths'] = np.insert(sounding['depths'], 0, 0)[:-1]
             sounding['bot_depths'] = sounding['depths']
 
             dist_loc, elev, min_dist, idx = self.findNearest(sounding,
-                                                                 xi, yi,
-                                                                 dists, elevs)
+                                                             xi, yi,
+                                                             dists, elevs)
 
             if min_dist < search_radius:
                 x1 = dist_loc - model_width/2
@@ -1229,10 +1260,9 @@ class Plot:
                 p = Polygon(verts, facecolor='none', edgecolor='k', lw=0.5)
 
                 ax.add_patch(p)
-                
+
                 if print_msg:
                     print('\033[1mTEM sounding %s is %.3f km from profile, it was included.\033[0m' % (sounding['id'], min_dist/1000))
-                    
 
             else:
                 if print_msg:
@@ -1241,21 +1271,16 @@ class Plot:
         if log:
             vmin = np.log10(vmin)
             vmax = np.log10(vmax)
-            
-        
-    def lithKey(self, ax=None, max_line_length=50, title='Geological Key', 
-                label_names=None, drop_idx = None):
-        
+
+    def lithKey(self, ax=None, max_line_length=50, title='Geological Key',
+                label_names=None, drop_idx=None):
+
         lith_cols = []
         lith_names = []
         top_depths = []
-        
-        bh_list = self.model.boreholes
-        
-        
 
         # Iterate through the list of dictionaries and extract unique values
-        for bh in bh_list:
+        for bh in self.model.boreholes:
             lith_cols.append(bh['colors'].tolist())
             lith_names.append(bh['lith_names'].tolist())
             top_depths.append(bh['top_depths'].tolist())
@@ -1277,11 +1302,13 @@ class Plot:
 
         idx = np.argsort(lith_depth)
         
-        #return(idx)
+        print(idx)
+
+        print(lith_key)
 
         lith_key = np.array(lith_key)[idx]
         unique_cols = np.array(unique_cols)[idx]
-        
+
         if label_names is not None:
             
             lith_key = label_names

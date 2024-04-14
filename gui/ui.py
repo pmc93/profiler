@@ -55,7 +55,7 @@ class ProfilerUI:
         self.cmap_select.pack(side=tk.LEFT)
 
         self.load_button = ttk.Button(
-            button_frame1, text="Add tTEM data", command=self.open_TEM_file)
+            button_frame1, text="Add tTEM data", command=self.open_tTEM_file)
         self.load_button.pack(side=tk.LEFT, padx=10, pady=5)
 
         self.load_button = ttk.Button(
@@ -185,8 +185,8 @@ class ProfilerUI:
         self.create_button.pack(side=tk.LEFT, padx=10, pady=5)
 
 
-    def open_TEM_file(self):
-        self.plotter.open_TEM_file()
+    def open_tTEM_file(self):
+        self.plotter.open_tTEM_file()
 
     def set_map_limits(self):
         self.plotter.xmin = self.xmin_entry.get()
@@ -258,29 +258,37 @@ class UIPlot:
             line, = self.ax.plot(x_vals, y_vals, color='r', marker='x')
             self.calculate_length(line)
 
-        for tem_model in self.model.tem_models:
-
-            if tem_model['mod_name'] == 'tTEM':
-                s = 0.5
-                c = 'cyan'
-
-            if tem_model['mod_name'] == 'walkTEM':
-                s = 8
-                c = 'blue'
+        for ttem_model in self.model.ttem_models:
 
             if self.misfit:
-                sc = self.ax.scatter(tem_model['x'],
-                                     tem_model['y'],
-                                     c=tem_model['residual'],
-                                     s=s, vmin=0, vmax=3, cmap='RdYlGn_r')
+                sc = self.ax.scatter(ttem_model['x'],
+                                     ttem_model['y'],
+                                     c=ttem_model['residual'],
+                                     s=0.5, vmin=0, vmax=3, cmap='RdYlGn_r')
 
                 if len(plt.gcf().axes) < 2:
                     self.cb = plt.colorbar(sc).set_label('Residual')
 
             else:
-                self.ax.scatter(tem_model['x'],
-                                tem_model['y'],
-                                c=c, s=s)
+                self.ax.scatter(ttem_model['x'],
+                                ttem_model['y'],
+                                c='cyan', s=0.5)
+
+        for stem_model in self.model.stem_models:
+
+            if self.misfit:
+                sc = self.ax.scatter(stem_model['x'],
+                                     stem_model['y'],
+                                     c=stem_model['residual'],
+                                     s=8, vmin=0, vmax=3, cmap='RdYlGn_r')
+
+                if len(plt.gcf().axes) < 2:
+                    self.cb = plt.colorbar(sc).set_label('Residual')
+
+            else:
+                self.ax.scatter(stem_model['x'],
+                                stem_model['y'],
+                                c='blue', s=8)
 
         if self.profile_coords is not None:
             x_vals = self.profile_coords[:, 0]
@@ -341,7 +349,7 @@ class UIPlot:
         self.model.profiles[0]['x'] = x_values
         self.model.profiles[0]['y'] = y_values
 
-        self.model.createProfiles(model_idx=0, profile_idx = [0],
+        self.model.createProfiles(ttem_model_idx=0, profile_idx = [0],
                                   interp_radius=self.interp_radius.get(),
                                   model_spacing=self.model_spacing.get())
 
@@ -412,17 +420,17 @@ class UIPlot:
         plot.TEMProfile(profile_idx=0, cmap=getAarhusCols(),
                         cbar_orientation='horizontal',
                         zmin=-90, zmax=10, ax=ax, scale=scale, vmax=vmax)
-        
-        if 'walkTEM' in self.model_types:
 
-            idx = self.model_types.index('walkTEM')
+        if len(self.model.stem_models) !=0:
 
-            plot.addTEMSoundings(profile_idx=0, model_idx=idx,
-                                 search_radius=100,
-                                 ax=ax, print_msg=True, vmax=vmax)
+            for i in range(len(self.model.stem_models)):
+
+                plot.addTEMSoundings(profile_idx=0,  stem_model_idx=i,
+                                     search_radius=100, cmap=getAarhusCols(),
+                                     ax=ax, print_msg=True, vmax=vmax)
 
         if len(self.model.boreholes) != 0:
-            plot.addBoreholes(model_idx=0, ax=ax, print_msg=True)
+            plot.addBoreholes(profile_idx=0, ax=ax, print_msg=True)
 
        # Function to refresh the plot
         def refresh_plot():
@@ -457,7 +465,6 @@ class UIPlot:
             self.canvas.draw()
 
         def add_walkTEM():
-            
             if self.cmap.get() == 'aarhus' or self.cmap.get() == 'Select cmap':
                 cmap = getAarhusCols()
             if self.cmap.get() == 'viridis':
@@ -478,7 +485,7 @@ class UIPlot:
 
         def add_borehole():
             plot.addBoreholes(model_idx=0, ax=ax, print_msg=True)
-            
+
         def plot_key():
             key_window = tk.Toplevel(profile_window)
             key_window.title("Key")
@@ -557,21 +564,19 @@ class UIPlot:
                     self.current_line.pop()
             self.plot_coordinates()
 
-    def open_TEM_file(self):
+    def open_tTEM_file(self):
 
         self.crs = None
         self.tem_path = filedialog.askopenfilename(
             filetypes=[("Text Files", "*.xyz")])
 
-        self.model.loadXYZ(self.tem_path, mod_name='tTEM')
+        self.model.loadXYZ(self.tem_path, mod_name='tTEM', model_type='tTEM')
 
-        self.model_types.append('tTEM')
-
-        self.crs = self.model.tem_models[-1]['epsg']
+        self.crs = self.model.ttem_models[-1]['epsg']
 
         self.plot_coordinates()
-        self.x = self.model.tem_models[0]['x']
-        self.y = self.model.tem_models[0]['y']
+        self.x = self.model.ttem_models[0]['x']
+        self.y = self.model.ttem_models[0]['y']
 
 
     def open_walkTEM_file(self):
@@ -579,9 +584,8 @@ class UIPlot:
         self.walktem_path = filedialog.askopenfilename(
             filetypes=[("Text Files", "*.xyz")])
 
-        self.model_types.append('walkTEM')
-
-        self.model.loadXYZ(self.walktem_path, mod_name='walkTEM')
+        self.model.loadXYZ(self.walktem_path, mod_name='sTEM',
+                           model_type='sTEM')
 
         self.plot_coordinates()
 
