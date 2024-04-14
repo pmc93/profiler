@@ -1,0 +1,8 @@
+matplotlib==3.8.2
+numpy==1.26.3
+scipy==1.12.0
+utm==0.7.0
+contextily
+pandas
+geopandas
+textwrap3
