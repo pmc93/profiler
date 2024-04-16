@@ -11,7 +11,6 @@ import sys
 import re
 import os
 
-sys.path.append(r'c:\users\au701230\onedrive - aarhus universitet\desktop\pytem\pytem2\profiler\src/profiler')
 import profiler
 from colormaps import getAarhusCols, getParulaCols
 
