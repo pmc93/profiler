@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Input Files &#8212; Edcrop</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'inputs';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Output files" href="outputs.html" />
+    <link rel="prev" title="Installation and Quickstart" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Edcrop - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Edcrop - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Welcome to Edcrop
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Quickstart</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Output files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">Tables of input and output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks-collection.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citations.html">Citations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Finputs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/inputs.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Input Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-input-file-edcrop-yaml">Structure of input file ‘edcrop.yaml’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-edcrop-uses-the-edcrop-yaml-input-during-execution">How Edcrop uses the edcrop.yaml input during execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-input">“Models” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climates-input">“Climates” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soils-input">“Soils” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crops-input">“Crops” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#winter-season-and-irrigation-season">Winter season and irrigation season</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="input-files">
+<h1>Input Files<a class="headerlink" href="#input-files" title="Link to this heading">#</a></h1>
+<p>To use Edcrop, it is crucial to use consistent units for all input. Since all the default values
+set in Edcrop use millimeter for length and day for time, it is beneficial to use these as units.
+Otherwise, all required data and parameters need to be specified in the input in order to avoid use of default values set in the code.
+All input to Edcrop, except the climate time series, is given in a required text file named edcrop.yaml. The
+file naming uses the extension “yaml” because the file is structured as a YAML file, and it is read (loaded) by
+the Python YAML module. The edcrop.yaml file must be available in the working directory when Edcrop is
+run.</p>
+<section id="structure-of-input-file-edcrop-yaml">
+<h2>Structure of input file ‘edcrop.yaml’<a class="headerlink" href="#structure-of-input-file-edcrop-yaml" title="Link to this heading">#</a></h2>
+<p>The edcrop.yaml file is a text file where each line of content is either a blank line, a comment, a key, a key
+and a value, or the continuation of a value if this needs (or is preferred) to span more than one line of text.</p>
+<p>A comment line begins with the hash character,”#”.</p>
+<p>A key is a text string which is succeeded by a colon, “:”. The colon is not part of the key.</p>
+<p>A value can be:</p>
+<ul class="simple">
+<li><p>A text string – e.g. JB1.</p></li>
+<li><p>An integer number – e.g. 23.</p></li>
+<li><p>A floating point (real) number – e.g. 7.831, using dot (“.”) as decimal separator; or 3.52e-7 for an
+exponential number.</p></li>
+<li><p>A date in the format %Y-%m-%d – e.g. 1998-08-31.</p></li>
+<li><p>A Boolean – i.e. either True or False.</p></li>
+<li><p>A list of either of the above – e.g. a list of three real numbers [3.2, 7.32, 7.5e-3].</p></li>
+<li><p>A dictionary – e.g. a dictionary with two entries {‘key_1’: 1.3, ‘key_2’: 2.7}, where an entry has a key
+(a text string) and a value (here a real number, but it could be of any type).</p></li>
+</ul>
+<p>A list begins by “[“, and ends by “]”. A comma separates entries.</p>
+<p>A dictionary begins by “{“, and ends by “}”. A colon followed by a space must separate the key and the
+value, and a comma must separate two entries.</p>
+<p>The file information is further structured by line indentation. <strong>It is a requirement to carry out line
+indentation by use of space characters, not by use of tabs!</strong></p>
+<p>Using tabs will create an error message and program failure</p>
+<p>Indentation is used to define a block of information; indented lines contain information belonging to the
+block. Further indentation defines information belonging to a sub block.</p>
+<p>Table 1 shows an example with an input block named “Models”. The block begins with the line with the key
+“Models”, defining the block name to be “Models”. This line is succeeded by an indented line with the keyDocumentation of Edcrop
+“M1” defining a sub block of information to “Models”. The following line with key “M2” defines a new sub
+block to “Models”.</p>
+<p>It is required to use exact same indentation for all sub blocks! Otherwise, the file loading fails with an error
+message! The error message is likely to point to the place in edcrop.yaml causing the loading problem.
+In Table 1, sub block “M2” has its own sub-sub-block with key “wbfunc” followed by a value, which is the
+string “evacrop”.</p>
+<p>Table 1 Example of input block in edcrop.yaml file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#This is a comment – beginning with the hash character</span>
+<span class="n">Models</span><span class="p">:</span>
+<span class="n">M1</span><span class="p">:</span>
+<span class="n">M2</span><span class="p">:</span>
+<span class="n">wbfunc</span><span class="p">:</span> <span class="n">evacrop</span>
+</pre></div>
+</div>
+</section>
+<section id="how-edcrop-uses-the-edcrop-yaml-input-during-execution">
+<h2>How Edcrop uses the edcrop.yaml input during execution<a class="headerlink" href="#how-edcrop-uses-the-edcrop-yaml-input-during-execution" title="Link to this heading">#</a></h2>
+<p>If Edcrop loads the “Models” block with the sub blocks in Table 1, it will execute two model runs. First
+Edcrop will make model run short-named “M1”: because there is no sub block to “M1:” Edcrop will run
+using default setup and default parameter values; as default, Edcrop uses the conceptualization for
+evapotranspiration and drainage described in Chapter 4. Second Edcrop will make model run short-named
+“M2”: this has a sub block with key “wbfunc” and value “evacrop”, which causes execution to use the
+Evacrop conceptualization for evapotranspiration and drainage described in Chapter 3.</p>
+<p>Table 2 shows another example of an edcrop.yaml file containing three blocks, each with one or more sub
+blocks.</p>
+<p>The first block is named “Climates”. Its sub block has a key named “C1”, and this has its own sub block with
+key “filename” and value (text string) “climate.dat”. This instructs Edcrop, when it executes, to read the
+required climate data from a file named “climate.dat”. “C1” would typically be a short name that identifies
+the climate station.</p>
+<p>The second block is named “Soils”. It has two sub blocks named “JB1” and “JB7”, respectively. Neither of
+the sub blocks have its own sub block(s). This instructs Edcrop to execute sequential simulation for each of
+two default soil types named JB1 and JB2, respectively, without changing any soil parameter value from its
+default value.</p>
+<p>The third block is named “Crops”, having two sub blocks named “SB” and “WW”, respectively. These sub
+blocks also do not have own sub blocks. This instructs Edcrop to execute simulation for two default crop
+types named SB (spring barley) and WW (winter wheat), respectively, without changing any crop parameter
+value from its default value.</p>
+<p>The edcrop.yaml file in Table 2 thus instructs Edcrop to execute in total four simulations; one simulation for
+each combination of two soils (JB1 and JB7) and two crops (SB and WW).Documentation of Edcrop</p>
+<p>Table 2 Example with the three mandatory input blocks of edcrop.yaml file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#This is an edcrop.yaml file with the following three mandatory blocks</span>
+<span class="c1">#Block defining file with climate data set</span>
+<span class="n">Climates</span><span class="p">:</span>
+   <span class="n">C1</span><span class="p">:</span>
+      <span class="n">filename</span><span class="p">:</span> <span class="n">climate</span><span class="o">.</span><span class="n">dat</span>
+<span class="c1">#Block defining soil types to be simulated</span>
+<span class="n">Soils</span><span class="p">:</span>
+   <span class="n">JB1</span><span class="p">:</span>
+   <span class="n">JB7</span><span class="p">:</span>
+<span class="c1">#Block defining crops to be simulated</span>
+<span class="n">Crops</span><span class="p">:</span>
+   <span class="n">SB</span><span class="p">:</span>
+   <span class="n">WW</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>If the edcrop.yaml file contained both the “Models” block in Table 1 and the three blocks in Table 2, Edcrop
+would execute in total eight simulations; a simulation for each combination of two model setups, two soils,
+and two crops.</p>
+<p>It is mandatory that the edcrop.yaml file contains a block for “Climates”, “Soils”, and “Crops”, respectively,
+like in Table 2.</p>
+<p>If the “Models” block is missing, Edcrop uses the default model setup when executing simulations.
+In Edcrop, the edcrop.yaml file is loaded in the function named <code class="docutils literal notranslate"><span class="pre">read_inp_file()</span></code>. This also stores the
+“Models”, “Climates”, “Soils”, and “Crops” information in respective Python dictionaries. These dictionaries
+are used by Edcrop to change settings and parameter values from their default as explained below.</p>
+<p>The following sub-chapters give more information about the input regarding model setup, climate data,
+soils and crops. The sub-chapter titles and content follow the block names in the edcrop.yaml file, i.e.
+“Models”, “Climates”, “Soils”, and “Crops”.</p>
+</section>
+<section id="models-input">
+<h2>“Models” input<a class="headerlink" href="#models-input" title="Link to this heading">#</a></h2>
+<p>The user should use the “Models” block of the edcrop.yaml file to specify model setup and model
+parameter values only to the extent they need to deviate from their default. If the “Models” block is not
+present, Edcrop uses the default model setup when executing simulations.</p>
+<p>As illustrated in Table 1 and explained in Chapter 5.1, each sub block (indented block) of “Models” specifies
+a model setup that will be executed when running Edcrop with the respective edcrop.yaml input file. The
+key of the sub block gives the name of that model execution (e.g. M1 in Table 1), which is also used as
+model case short name in the naming of output files from this execution (explained in Chapter 6).</p>
+<p>A sub block to a sub block (twice-indented block) specifies the desired setting or value by a key and a value,
+as for key “wbfunc” in Table 1. There can be several of such sub blocks to a sub block, if more than one
+setting or parameter needs to deviate from its default.Documentation of Edcrop</p>
+<p>In Chapter 7.1, Table 6 lists all the model settings or model parameter values that can be changed by the
+edcrop.yaml “Models” input. The Table also gives the respective key and type of value to be specified in the
+edcrop.yaml file. Table 7 shows a second example of “Models” block input of an edcrop.yaml file.</p>
+<p>In Edcrop, default model settings and parameter values are set in <code class="docutils literal notranslate"><span class="pre">ModelParameters.initialize()</span></code>. Changing
+default settings or values by using the edcrop.yaml input happens in <code class="docutils literal notranslate"><span class="pre">ModelParameters.read_initialize()</span></code>.
+As default, Edcrop uses “wbfunc : ed”, the alternative water balance function described in chapter 4. To use
+the water balance function from Evacrop instead, set key and value “wbfunc: evacrop”.</p>
+</section>
+<section id="climates-input">
+<h2>“Climates” input<a class="headerlink" href="#climates-input" title="Link to this heading">#</a></h2>
+<p>The mandatory “Climates” block of the edcrop.yaml file specifies what file(s) to read to obtain time series
+for climate data, i.e. for daily temperature, precipitation, and reference evapotranspiration. If more than
+one file is specified, Edcrop will execute simulation using each data set sequentially.</p>
+<p>As illustrated in Table 3, each sub block (indented block) of “Climates” specifies a climate data input that
+will be used to execute a simulation when running Edcrop. The key of the sub block gives the climate case
+short name of that model execution (e.g. Clim_1 in Table 3), which is also used to name the output files
+from this execution (explained in Chapter 6). The short name typically identifies the corresponding climate
+station.</p>
+<p>A sub block to the sub block (twice-indented block) MUST specify a set of climate data input by using the
+key “filename” with value being a string, where the string is a valid filename containing the climate data
+time series.</p>
+<p>Another sub block may specify by key “dtformat” a value being a string defining the format of dates to be
+read from the climate data file. In Table 3, Clim_2 contains this sub block. This instructs Edcrop that dates in
+the climate file are in the format ‘%Y%m%d’, which could for example be 20200128.</p>
+<p>As for Clim_1 in Table 3, if a sub block with key “dtformat” is not specified, Edcrop will read the climate
+data file using the default format ‘%Y-%m-%d’, which could for example be 2020-01-28.</p>
+<p>The climate data file is a CSV file, which is read by Edcrop using <code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code>.</p>
+<p>Edcrop skips reading the first line of the file. This is because such a line often just names the input of the
+column beneath. Edcrop uses its own internal naming.</p>
+<p>The file must contain four columns of daily data in this order: date, temperature, precipitation, and
+reference evapotranspiration.</p>
+<p>During reading, the date column data are transformed by <code class="docutils literal notranslate"><span class="pre">pandas.to_datetime()</span></code> using the date format
+mentioned above.</p>
+<p>Edcrop checks that the succeeding dates in the file increase by 1 day. If this is not the case, Edcrop will not
+use the file; instead, it writes a message to the screen and in the edcrop.log file, and continues with the
+next “Climates” input block.</p>
+<p>The beginning and end dates of the climate data determine the simulation period.
+In Edcrop, a climate data file is read by <code class="docutils literal notranslate"><span class="pre">TimeSeries.read()</span></code>.Documentation of Edcrop</p>
+<p>Table 3 Example of “Climates” input block of edcrop.yaml file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Climates</span><span class="p">:</span>
+    <span class="n">Clim_1</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="n">climate_station_1</span><span class="o">.</span><span class="n">dat</span>
+    <span class="n">Clim_2</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">:</span> <span class="n">climate_station_2</span><span class="o">.</span><span class="n">dat</span>
+        <span class="n">dtformat</span><span class="p">:</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>Table 4 Example of “Soils” input block of edcrop.yaml file. JB1a is a new soil type defined from one of the
+default soil types, JB1.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Soils</span><span class="p">:</span>
+    <span class="n">JB1</span><span class="p">:</span>
+    <span class="n">JB2</span><span class="p">:</span>
+        <span class="n">kqr</span><span class="p">:</span> <span class="mf">0.2</span>
+    <span class="n">JB1a</span><span class="p">:</span>
+        <span class="n">soiltype</span><span class="p">:</span> <span class="n">JB1</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Very</span> <span class="n">coarse</span> <span class="n">sandy</span>
+        <span class="n">thf</span><span class="p">:</span> <span class="p">[</span><span class="mf">.12</span><span class="p">,</span> <span class="mf">.06</span><span class="p">,</span> <span class="mf">.06</span><span class="p">,</span> <span class="mf">.06</span><span class="p">]</span>
+        <span class="n">kqr</span><span class="p">:</span> <span class="mf">1.2</span>
+</pre></div>
+</div>
+</section>
+<section id="soils-input">
+<h2>“Soils” input<a class="headerlink" href="#soils-input" title="Link to this heading">#</a></h2>
+<p>The mandatory “Soils” block of the edcrop.yaml file specifies the soil types simulated during Edcrop
+execution.</p>
+<p>Table 4 shows an example of a “Soils” block specifying, by the first level of indented lines, that three soil
+types should be simulated; the soil types are named JB1, JB2, and JB1a, respectively. JB1 and JB2 are two of
+seven predefined soil types in Edcrop (see Chapter 7.2), while JB1a is a new soil type defined for the actual
+simulation. The user is free to choose nay name (key) for a new soil type. During execution, Edcrop uses
+JB1, JB2, or JB1a, respectively, as soil case short name in the naming of output files from that simulation
+(see Chapter 6).</p>
+<p>Because there are no second level indented lines following the JB1-line in Table 4, the JB1 soil is simulated
+using entirely default parameter values set in Edcrop.</p>
+<p>For the JB2 soil, a second-level indented line follows the JB2-line, having key “kqr” and value equal to 0.2.
+This instructs Edcrop to simulate the JB2 soil with the drainage rate
+kqr set equal to 0.2; for all remaining soil parameters Edcrop uses default values.</p>
+<p>A new soil type needs to be defined from one of the predefined soil types. In Table 4, a new very coarse
+sandy soil type, short-named JB1a, is defined from the predefined JB1 soil, which is a coarse sandy type
+(see Chapter 7.2). The second-level indented line following the JB1a line, using “soiltype” as key and the
+string “JB1” as value, instructs this. The following second-level indented lines instruct Edcrop to change
+some soil parameter values from the default values of the JB1 soil.</p>
+<p>As an alternative, a new soil type can be coded into Edcrop. This is done in <code class="docutils literal notranslate"><span class="pre">SoilParameters.initialize()</span></code>.
+Thereby the soil type will be “predefined” in Edcrop.Documentation of Edcrop</p>
+<p>In Chapter 7.2, Table 9 lists all the soil parameter values that can be changed by the edcrop.yaml “Soils”
+input. The Table also gives the respective key and type of value to be specified in the edcrop.yaml file.
+Table 10 shows a second example of “Soils” block input of an edcrop.yaml file.</p>
+<p>As default, Edcrop uses the linear drainage model for all soil types. However, if “wbfunc: ed” in the
+“Models” block, the nonlinear drainage model can be chosen instead by setting “soilmodel: mvg” as
+illustrated in Table 10 (Chapter 7.2). Also, as default Edcrop uses 0
+Kmp = , which means there is no macro
+pore drainage.</p>
+</section>
+<section id="crops-input">
+<h2>“Crops” input<a class="headerlink" href="#crops-input" title="Link to this heading">#</a></h2>
+<p>The mandatory “Crops” block of the edcrop.yaml file specifies the vegetation types simulated during
+Edcrop execution. The “Crops” block is structured, and used by Edcrop, as described above for the “Soils”
+block.</p>
+<p>Table 5 shows an example of a “Crops” block specifying, by the first level of indented lines, that three
+vegetation types should be simulated; the types are short-named SB (spring barley), DF (deciduous forest),
+and WR (winter rape), respectively. SB and DF are two of thirteen predefined vegetation types in Edcrop
+(see Chapter 7.3), while WR is a new type defined for the actual simulation. (The user is free to choose nay
+name (key) for a new vegetation type.) For SB and DF, during execution they will have some of their
+parameter values or settings changed from the default. WR is defined from the predefined type, WW,
+which is winter wheat, but dates of sow and harvest are changed. During execution, Edcrop uses SB, DF, or
+WR, respectively, as vegetation case short name in the naming of output files from that simulation (see
+Chapter 6).</p>
+<p>In Table 5, notice that the year is 1900 in the dates for sow and harvest of WR and for “leaflife” of DF.
+Edcrop does not use the year; it only uses month and day for every simulated year. Therefore, an arbitrary
+year can be used for the value of these dates.</p>
+<p>For permanent use, a new vegetation type can be coded into Edcrop and thereby be “predefined”. This is
+done in <code class="docutils literal notranslate"><span class="pre">CropParameters.initialize()</span></code>.</p>
+<p>In Chapter 7.3, Table 12 lists all the vegetation parameter values that can be changed by the edcrop.yaml
+“Crops” input. The Table also gives the respective key and type of value to be specified in the edcrop.yaml
+file.</p>
+<p>In Edcrop, default vegetation parameter values and growth models are set in <code class="docutils literal notranslate"><span class="pre">CropParameters.initialize()</span></code>.
+Changing default settings or values by using the edcrop.yaml input happens <code class="docutils literal notranslate"><span class="pre">CropParameters.read_initialize()</span></code>.Documentation of Edcrop</p>
+<p>Table 5 Example of “Crops” input block of edcrop.yaml file. SB and DF are predefined vegetation types for
+which Edcrop during execution changes some parameter values from the default. WR is a new
+crop type defined from one of the predefined types, WW.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Crops</span><span class="p">:</span>
+   <span class="n">SB</span><span class="p">:</span>
+       <span class="n">cb</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+       <span class="n">cr</span><span class="p">:</span> <span class="mf">12.</span>
+       <span class="n">autoharvest</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">DF</span><span class="p">:</span>
+        <span class="n">leaflife</span><span class="p">:</span> <span class="p">[</span><span class="mi">1900</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1900</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">01</span><span class="p">,</span> <span class="mi">1900</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1900</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>
+    <span class="n">WR</span><span class="p">:</span>
+       <span class="n">croptype</span><span class="p">:</span> <span class="n">WW</span>
+       <span class="n">name</span><span class="p">:</span> <span class="n">Winter</span> <span class="n">rape</span>
+       <span class="n">sowdate</span><span class="p">:</span> <span class="mi">1900</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">01</span>
+       <span class="n">harvestdate</span><span class="p">:</span> <span class="mi">1900</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">20</span>
+</pre></div>
+</div>
+</section>
+<section id="winter-season-and-irrigation-season">
+<h2>Winter season and irrigation season<a class="headerlink" href="#winter-season-and-irrigation-season" title="Link to this heading">#</a></h2>
+<p>In Edcrop, the winter season (when there is no plant growth) is specified by
+ModelParameters.wintermonth, which is a list of monthly Boolean (True or False) values defining which
+months belong to the winter season. In Edcrop, the winter months are set to be November, December,
+January and February. This can only be changed inside the code by modifying the
+ModelParameters.wintermonth. (It has not been thoroughly checked that change of this setting to
+Southern Hemisphere conditions works correctly. Try for yourself, and let me know if there are problems
+with the code.)</p>
+<p>Similarly, the irrigation season is specified by ModelParameters.irrigationmonth, which is a list of monthly
+Boolean (True or False) values defining which months belong to the irrigation season. In Edcrop, the
+irrigation months are set to be May, June and July. This can only be changed inside the code by modifying
+the ModelParameters.irrigationmonth list.Documentation of Edcrop</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation and Quickstart</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="outputs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Output files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-input-file-edcrop-yaml">Structure of input file ‘edcrop.yaml’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-edcrop-uses-the-edcrop-yaml-input-during-execution">How Edcrop uses the edcrop.yaml input during execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-input">“Models” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climates-input">“Climates” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soils-input">“Soils” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crops-input">“Crops” input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#winter-season-and-irrigation-season">Winter season and irrigation season</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Christensen & P. McLachlan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

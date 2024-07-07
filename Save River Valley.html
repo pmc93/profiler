@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Save River Valley &#8212; Edcrop</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Save River Valley';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Edcrop - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Edcrop - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Welcome to Edcrop
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Output files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">Tables of input and output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks-collection.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citations.html">Citations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSave River Valley.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Save River Valley.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Save River Valley</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="save-river-valley">
+<h1>Save River Valley<a class="headerlink" href="#save-river-valley" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from edcrop import edcrop
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import warnings
+warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
+
+wdir = os.path.join(os.getcwd(), &#39;edcrop&#39;)
+
+os.chdir(wdir)
+
+yaml = os.path.join(wdir, &#39;yaml_files/default.yaml&#39;)
+
+edcrop.run_model(yaml=yaml)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\au701230\AppData\Roaming\Python\Python310\site-packages\pandas\core\arrays\masked.py:60: UserWarning: Pandas requires version &#39;1.3.6&#39; or newer of &#39;bottleneck&#39; (version &#39;1.3.4&#39; currently installed).
+  from pandas.core import (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Read input file C:\Users\au701230\OneDrive - Aarhus Universitet\Documents\Projects\edcrop\edcrop\yaml_files/default.yaml.
+
+Loop through simulations.
+
+ Climate data file: C:\Users\au701230\OneDrive - Aarhus Universitet\Documents\Projects\edcrop\edcrop\data\Weatherdata_S1.edcrop_wf.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Soil parameter values:  use default.
+
+ Crop parameter values:  use default.
+
+ Model parameter values:  update from input file.
+  ed:
+    plotseries: false
+    prlistd: Date T P Ep I Ea Dsum Db Dmp
+    prlisty: P Ep I Ea Dsum Db Dmp
+    wbfunc: ed
+    
+===&gt; Run Station1_JB1_WW_ed
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">wdir</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">yaml</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wdir</span><span class="p">,</span> <span class="s1">&#39;yaml_files/default.yaml&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">edcrop</span><span class="o">.</span><span class="n">run_model</span><span class="p">(</span><span class="n">yaml</span><span class="o">=</span><span class="n">yaml</span><span class="p">)</span>
+
+<span class="nn">File ~\WPy64-31090\python-3.10.9.amd64\lib\site-packages\edcrop\edcrop.py:3099,</span> in <span class="ni">run_model</span><span class="nt">(yaml, log)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3096</span> <span class="c1"># Write and plot output</span>
+<span class="g g-Whitespace">   </span><span class="mi">3097</span> <span class="n">begin_name</span> <span class="o">=</span> <span class="p">(</span><span class="n">clim</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">soil</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">crop</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3098</span>               <span class="o">+</span> <span class="n">model</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3099</span> <span class="n">ts</span><span class="o">.</span><span class="n">print_from_dictionary</span><span class="p">(</span><span class="n">begin_name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3100</span> <span class="k">if</span> <span class="n">mp</span><span class="o">.</span><span class="n">plotseries</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3101</span>     <span class="n">ts</span><span class="o">.</span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">soilname</span><span class="p">,</span> <span class="n">cd</span><span class="o">.</span><span class="n">cropname</span><span class="p">,</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3102</span>                         <span class="n">begin_name</span><span class="p">)</span>
+
+<span class="nn">File ~\WPy64-31090\python-3.10.9.amd64\lib\site-packages\edcrop\edcrop.py:376,</span> in <span class="ni">TimeSeries.print_from_dictionary</span><span class="nt">(self, fname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span>         <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prlist_y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>         <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span> <span class="c1">#            df2=df.resample(&#39;A&#39;,how=sum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>             <span class="c1">#df2.replace(&#39;non n&#39;)</span>
+<span class="ne">--&gt; </span><span class="mi">376</span>             <span class="bp">self</span><span class="o">.</span><span class="n">df2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span>             <span class="n">colalias</span><span class="o">=</span><span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prlist_y</span><span class="p">)):</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\resample.py:1184,</span> in <span class="ni">Resampler.sum</span><span class="nt">(self, numeric_only, min_count, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="n">maybe_warn_args_and_kwargs</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_resampler_func</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1184</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_downsample</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\resample.py:1782,</span> in <span class="ni">DatetimeIndexResampler._downsample</span><span class="nt">(self, how, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1779</span> <span class="c1"># we are downsampling</span>
+<span class="g g-Whitespace">   </span><span class="mi">1780</span> <span class="c1"># we want to call the actual grouper method here</span>
+<span class="g g-Whitespace">   </span><span class="mi">1781</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1782</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grouper</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1783</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1784</span>     <span class="c1"># test_resample_axis1</span>
+<span class="g g-Whitespace">   </span><span class="mi">1785</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_grouper</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\generic.py:1432,</span> in <span class="ni">DataFrameGroupBy.aggregate</span><span class="nt">(self, func, engine, engine_kwargs, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1429</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;engine_kwargs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">engine_kwargs</span>
+<span class="g g-Whitespace">   </span><span class="mi">1431</span> <span class="n">op</span> <span class="o">=</span> <span class="n">GroupByApply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1432</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">agg</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1433</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_dict_like</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1434</span>     <span class="c1"># GH #52849</span>
+<span class="g g-Whitespace">   </span><span class="mi">1435</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_index</span> <span class="ow">and</span> <span class="n">is_list_like</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\apply.py:187,</span> in <span class="ni">Apply.agg</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_str</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">if</span> <span class="n">is_dict_like</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">agg_dict_like</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\apply.py:603,</span> in <span class="ni">Apply.apply_str</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span>             <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axis&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span>
+<span class="ne">--&gt; </span><span class="mi">603</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_str</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\apply.py:693,</span> in <span class="ni">Apply._apply_str</span><span class="nt">(self, obj, func, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">693</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span> <span class="c1"># people may aggregate on a non-callable attribute</span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="c1"># but don&#39;t let them think they can pass args to it</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\groupby.py:3146,</span> in <span class="ni">GroupBy.sum</span><span class="nt">(self, numeric_only, min_count, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3141</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3142</span>     <span class="c1"># If we are grouping on categoricals we want unobserved categories to</span>
+<span class="g g-Whitespace">   </span><span class="mi">3143</span>     <span class="c1"># return zero, rather than the default of NaN which the reindexing in</span>
+<span class="g g-Whitespace">   </span><span class="mi">3144</span>     <span class="c1"># _agg_general() returns. GH #31422</span>
+<span class="g g-Whitespace">   </span><span class="mi">3145</span>     <span class="k">with</span> <span class="n">com</span><span class="o">.</span><span class="n">temp_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;observed&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">3146</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3147</span>             <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3148</span>             <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3149</span>             <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3150</span>             <span class="n">npfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3151</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3153</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_output</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\groupby.py:1906,</span> in <span class="ni">GroupBy._agg_general</span><span class="nt">(self, numeric_only, min_count, alias, npfunc, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1896</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">   </span><span class="mi">1897</span> <span class="k">def</span> <span class="nf">_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1898</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1904</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1905</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1906</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1907</span>         <span class="n">how</span><span class="o">=</span><span class="n">alias</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1908</span>         <span class="n">alt</span><span class="o">=</span><span class="n">npfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1909</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1910</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1911</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1912</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1913</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\groupby.py:1998,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1995</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1996</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1998</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1999</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2000</span> <span class="k">if</span> <span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;idxmin&quot;</span><span class="p">,</span> <span class="s2">&quot;idxmax&quot;</span><span class="p">]:</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\internals\managers.py:1472,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1470</span>             <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1471</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1472</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1473</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1475</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result_blocks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\internals\blocks.py:393,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">393</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">maybe_coerce_values</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\groupby.py:1973,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1971</span> <span class="k">def</span> <span class="nf">array_func</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1972</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1973</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1974</span>             <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1975</span>             <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1976</span>             <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1977</span>             <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1978</span>             <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1979</span>             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1980</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1981</span>     <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1982</span>         <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1983</span>         <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1984</span>         <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1985</span>         <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="g g-Whitespace">   </span><span class="mi">1986</span>         <span class="c1"># TODO: avoid special casing SparseArray here</span>
+<span class="g g-Whitespace">   </span><span class="mi">1987</span>         <span class="k">if</span> <span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">SparseArray</span><span class="p">):</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\ops.py:831,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">829</span> <span class="n">ids</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_info</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">831</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">834</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span> <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\groupby\ops.py:541,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>     <span class="c1"># i.e. ExtensionArray</span>
+<span class="ne">--&gt; </span><span class="mi">541</span>     <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">_groupby_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>         <span class="n">how</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>         <span class="n">has_dropped_na</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">has_dropped_na</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span>         <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">546</span>         <span class="n">ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span> <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\pandas\core\arrays\datetimelike.py:1669,</span> in <span class="ni">DatetimeLikeArrayMixin._groupby_op</span><span class="nt">(self, how, has_dropped_na, min_count, ngroups, ids, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span> <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="c1"># Adding/multiplying datetimes is not valid</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="k">if</span> <span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;prod&quot;</span><span class="p">,</span> <span class="s2">&quot;cumsum&quot;</span><span class="p">,</span> <span class="s2">&quot;cumprod&quot;</span><span class="p">,</span> <span class="s2">&quot;var&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">]:</span>
+<span class="ne">-&gt; </span><span class="mi">1669</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;datetime64 type does not support </span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2"> operations&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span>     <span class="k">if</span> <span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span>         <span class="c1"># GH#34479</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1673</span>             <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">&#39; with datetime64 dtypes is deprecated and will raise in a &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1674</span>             <span class="sa">f</span><span class="s2">&quot;future version. Use (obj != pd.Timestamp(0)).</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">() instead.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1675</span>             <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1676</span>             <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1677</span>         <span class="p">)</span>
+
+<span class="ne">TypeError</span>: datetime64 type does not support sum operations
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+df = pd.read_csv(&#39;Station1_JB1_WW_ed_wb.out&#39;)
+df.columns = df.columns.str.replace(&#39; &#39;, &#39;&#39;)
+
+df_sub = df.iloc[0:365,:]
+
+
+fig, axs = plt.subplots(3,2, sharex = &#39;col&#39;, sharey=&#39;row&#39;)
+
+df.plot.line(x=&#39;Date&#39;, y=&#39;Ea&#39;, ax=axs[0,0], c=&#39;C2&#39;, label=&#39;Actual ET&#39;, lw=0.5)
+df.plot.line(x=&#39;Date&#39;, y=&#39;P&#39;, ax=axs[1,0], c=&#39;C0&#39;, label=&#39;Precipitation&#39;, lw=0.5)
+df.plot.line(x=&#39;Date&#39;, y=&#39;Dsum&#39;, ax=axs[2,0], c=&#39;C4&#39;, label=&#39;Drainage&#39;, lw=0.5)
+
+
+df_sub.plot.line(x=&#39;Date&#39;, y=&#39;Ea&#39;, ax=axs[0,1], c=&#39;C2&#39;, label=&#39;Actual ET&#39;, lw=0.5)
+df_sub.plot.line(x=&#39;Date&#39;, y=&#39;P&#39;, ax=axs[1,1], c=&#39;C0&#39;, label=&#39;Precipitation&#39;, lw=0.5)
+df_sub.plot.line(x=&#39;Date&#39;, y=&#39;Dsum&#39;, ax=axs[2,1], c=&#39;C4&#39;, label=&#39;Drainage&#39;, lw=0.5)
+
+axs[0,0].set_ylabel(&#39;Drainage [mm]&#39;)
+
+fig.autofmt_xdate()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/050b9f0dca9afc96646401de9275de7f0cfe548d2a272972cbe38d4dc063daed.png" src="_images/050b9f0dca9afc96646401de9275de7f0cfe548d2a272972cbe38d4dc063daed.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S. Christensen & P. McLachlan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
