@@ -10,7 +10,7 @@ import numpy as np
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-#from colormaps import getAarhusCols, getParulaCols
+
 from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap
 from matplotlib.collections import PolyCollection
 from matplotlib.patches import Polygon
@@ -18,6 +18,8 @@ import re
 import contextily as cx
 import textwrap
 from matplotlib import cm
+import geopandas as gpd
+from shapely.geometry import Point
 
 
 class Model:
@@ -409,22 +411,71 @@ class Model:
 
             depths_new = np.repeat(depths[0, :][None, :], n_models, axis=0)
 
-            elev_new = self.interpIDW(x, y, elev, xi, yi, power=2,
-                                      interp_radius=interp_radius)
+            if np.nansum(rhos_new) == 0:
 
-            elev_new = self.interpLIN(dists, elev_new)
+                self.profiles[idx]['rhos'] = None
+                self.profiles[idx]['depths'] = None
+                self.profiles[idx]['elev'] = None
+                self.profiles[idx]['doi'] = None
+                self.profiles[idx]['distances'] = dists
+                self.profiles[idx]['xi'] = xi
+                self.profiles[idx]['yi'] = yi
 
-            doi_new = self.interpIDW(x, y, doi, xi, yi, power=2,
-                                     interp_radius=interp_radius)
-            doi_new = self.interpLIN(dists, doi_new)
+            else:
 
-            self.profiles[idx]['rhos'] = rhos_new
-            self.profiles[idx]['depths'] = depths_new
-            self.profiles[idx]['elev'] = elev_new
-            self.profiles[idx]['doi'] = doi_new
-            self.profiles[idx]['distances'] = dists
-            self.profiles[idx]['xi'] = xi
-            self.profiles[idx]['yi'] = yi
+                elev_new = self.interpIDW(x, y, elev, xi, yi, power=2,
+                                        interp_radius=interp_radius)
+
+                elev_new = self.interpLIN(dists, elev_new)
+
+                doi_new = self.interpIDW(x, y, doi, xi, yi, power=2,
+                                        interp_radius=interp_radius)
+                doi_new = self.interpLIN(dists, doi_new)
+
+                self.profiles[idx]['rhos'] = rhos_new
+                self.profiles[idx]['depths'] = depths_new
+                self.profiles[idx]['elev'] = elev_new
+                self.profiles[idx]['doi'] = doi_new
+                self.profiles[idx]['distances'] = dists
+                self.profiles[idx]['xi'] = xi
+                self.profiles[idx]['yi'] = yi
+
+    def exportShp(self, ttem_model_idx=None, stem_model_idx=None, shp_file='out.shp'):
+
+        if ttem_model_idx is None:
+
+            idx = stem_model_idx
+
+            x = self.stem_models[idx]['x']
+            y = self.stem_models[idx]['y']
+            epsg =  self.stem_models[idx]['epsg']
+            epsg = int(re.findall(r'\d+', epsg)[0])
+
+        elif stem_model_idx is None:
+
+            idx = ttem_model_idx
+
+            x = self.ttem_models[idx]['x']
+            y = self.ttem_models[idx]['y']
+            epsg =  self.ttem_models[idx]['epsg']
+            epsg = int(re.findall(r'\d+', epsg)[0])
+
+        else:
+
+            print('specify idx')
+
+        
+
+        coords = np.array((x, y)).T
+
+        geometry = [Point(x, y) for x, y in coords]
+
+        gdf = gpd.GeoDataFrame(geometry=geometry)
+
+        gdf.set_crs(epsg=epsg, inplace=True)
+
+
+        gdf.to_file(shp_file)
 
     def loadBoreholes(self, borehole_paths, file_type='dat'):
         """
@@ -519,8 +570,8 @@ class Plot:
                            marker='.', c=ttem_color, s=1, label='tTEM data')
 
             else:
-                ax.scatter(self.model.tem_models[i]['x'],
-                           self.model.tem_models[i]['y'],
+                ax.scatter(self.model.ttem_models[i]['x'],
+                           self.model.ttem_models[i]['y'],
                            marker='.', c=ttem_color, s=1)
 
         for i in range(len(self.model.stem_models)):
@@ -532,8 +583,8 @@ class Plot:
                            label='sTEM data')
 
             else:
-                ax.scatter(self.model.tem_models[i]['x'],
-                           self.model.tem_models[i]['y'],
+                ax.scatter(self.model.stem_models[i]['x'],
+                           self.model.stem_models[i]['y'],
                            marker='.', c=ttem_color, s=10, ec='k')
 
         if len(self.model.profiles) > 10:
@@ -636,7 +687,7 @@ class Plot:
 
         self.plot2D(rhos=rhos, depths=depths, elev=elev, dists=dists,
                     doi=doi, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap,
-                    zmin=zmin, zmax=zmax, xmin=xmin, xmax=xmax,
+                    zmin=zmin, zmax=zmax, xmin=xmin, xmax=xmax,cbar=cbar,
                     plot_title=plot_title, scale=scale, 
                     cbar_orientation=cbar_orientation)
 
@@ -865,7 +916,7 @@ class Plot:
 
         ax.set_aspect(scale)
 
-        ax.grid(which='both')
+        #ax.grid(which='both', zorder=3)
         fig.tight_layout()
 
     def TEMSounding(self, model_type, model_idx, sounding_idx, vmin=0, vmax=1000, ax=None):
@@ -963,7 +1014,7 @@ class Plot:
         if elev is not None:
             elev = elev[idx]
         else:
-            elev = dict_data['elevation']
+            elev = dict_data['elev']
 
         if dists is not None:
 
@@ -1025,7 +1076,7 @@ class Plot:
 
     def addBoreholes(self, profile_idx, ax, elev=None,
                      search_radius=150, bh_width=None, add_label=False,
-                     text_size=12, shift=5, print_msg=False):
+                     text_size=12, shift=5.0, print_msg=False):
         """
 
         Parameters
@@ -1082,8 +1133,9 @@ class Plot:
 
                 ax.add_patch(p)
                 if add_label:
-                    ax.text(dist_loc, elev+shift,  bh['id'][4:],
-                            horizontalalignment='center', weight='bold',
+                    print(elev+shift)
+                    ax.text(dist_loc, elev+shift,  bh['id'],
+                            horizontalalignment='center', 
                             verticalalignment='top', fontsize=text_size)
                 if print_msg:
                     print('\033[1mBorehole %s is %.3f km from profile, it was included.\033[0m' % (bh['id'], min_dist/1000))
@@ -1116,6 +1168,8 @@ class Plot:
         yi = self.model.profiles[profile_idx]['yi']
         dists = self.model.profiles[profile_idx]['distances']
         elevs = self.model.profiles[profile_idx]['elev']
+
+        
 
         n_models = len(nmr_list)
 
@@ -1176,8 +1230,8 @@ class Plot:
             vmax = np.log10(vmax)
             
 
-    def addTEMSoundings(self, profile_idx, stem_model_idx, ax, vmin=1, vmax=1000, elev=None,
-                        log=True, cmap=plt.cm.turbo, n_bins=16, discrete_colors=False,
+    def addTEMSoundings(self, profile_idx, stem_model_idx, ax, vmin=1, vmax=1000, ttem_elev=False,
+                        log=True, cmap=plt.cm.turbo, n_bins=16, discrete_colors=False, boundary=True,
                         search_radius=100, model_width=None, print_msg=False):
         """
 
@@ -1199,7 +1253,12 @@ class Plot:
         xi = self.model.profiles[profile_idx]['xi']
         yi = self.model.profiles[profile_idx]['yi']
         dists = self.model.profiles[profile_idx]['distances']
-        elevs = self.model.profiles[profile_idx]['elev']
+
+        if ttem_elev:
+            elevs = self.model.profiles[profile_idx]['elev']
+
+        else:
+            elevs = None
 
         n_models = len(self.model.stem_models[stem_model_idx]['x'])
 
@@ -1214,6 +1273,7 @@ class Plot:
 
             sounding['x'] = self.model.stem_models[stem_model_idx]['x'][i]
             sounding['y'] = self.model.stem_models[stem_model_idx]['y'][i]
+            sounding['elev'] = self.model.stem_models[stem_model_idx]['elev'][i]
             sounding['rhos'] = self.model.stem_models[stem_model_idx]['rhos'][i]
             sounding['depths'] = self.model.stem_models[stem_model_idx]['depths'][i]
             sounding['doi'] = self.model.stem_models[stem_model_idx]['doi_con'][i]
@@ -1224,6 +1284,8 @@ class Plot:
             dist_loc, elev, min_dist, idx = self.findNearest(sounding,
                                                              xi, yi,
                                                              dists, elevs)
+            
+            #print(elev)
 
             if min_dist < search_radius:
                 x1 = dist_loc - model_width/2
@@ -1256,10 +1318,12 @@ class Plot:
                                   [x2, elev - sounding['bot_depths'][-1]],
                                   [x1, elev - sounding['bot_depths'][-1]],
                                   [x1, elev - sounding['top_depths'][0]]))
+                
+                if boundary:
 
-                p = Polygon(verts, facecolor='none', edgecolor='k', lw=0.5)
+                    p = Polygon(verts, facecolor='none', edgecolor='k', lw=0.5)
 
-                ax.add_patch(p)
+                    ax.add_patch(p)
 
                 if print_msg:
                     print('\033[1mTEM sounding %s is %.3f km from profile, it was included.\033[0m' % (sounding['id'], min_dist/1000))
