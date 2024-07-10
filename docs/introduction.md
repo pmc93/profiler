@@ -1,5 +1,6 @@
 ## Introduction
 
+Hello it is working!
 Evapotranspiration is one of the major components of Earth’s water balance, being the sum of evaporation and plant transpiration from the land and ocean surface. Factors that affect evapotranspiration includes solar radiation, wind, humidity, temperature, growth stage of vegetation, and water availability. The latter depends on factors such as precipitation, irrigation, and soil characteristics.
 
 Local- or field-scale evapotranspiration can be measured by a weighing lysimeter, the energy balance Bowen-ratio method, or the eddy covariance technique, but these instruments and methods are expensive, may be susceptible to errors, or require correction (Healy, 2010). Alternatively, field-scale evapotranspiration can be estimated from climatic data by simulating the water balance of an area with a specific vegetation growing on a specific soil. This report documents a code (a package), programmed in Python and named Edcrop, which can do such local simulations for various types of soil and vegetation. It does not simulate surface flow, lateral flow, nor flow processes taking place in the saturated zone (e.g. loss of water to drains). The water balance equation of Edcrop is therefore simply:
