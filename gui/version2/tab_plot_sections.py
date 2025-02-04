@@ -668,12 +668,18 @@ class SectionPlotTab:
         if self.color_var.get() == 'Color Map':
             cmap = plt.cm.viridis
 
-        self.plot.TEMProfile(profile_idx=self.profile_idx, cmap=cmap,
-                            cbar_orientation='horizontal', cbar=True,
-                            zmin=zmin, zmax=zmax, ax=self.ax2, 
-                            scale=scale, vmin=vmin, vmax=vmax)
+        if hasattr(self.model, 'ttem_models'):
+
+            self.plot.TEMProfile(profile_idx=self.profile_idx, cmap=cmap,
+                                cbar_orientation='horizontal', cbar=True,
+                                zmin=zmin, zmax=zmax, ax=self.ax2, 
+                                scale=scale, vmin=vmin, vmax=vmax)
+            
+        else:
+            self.ax2.set_xlim(0-100, self.model.profiles[self.profile_idx]['distances'][-1]*1.1)
+            self.ax2.set_ylim(-20, 10)
         
-        if self.model.stem_models: 
+        if hasattr(self.model, 'stem_models'):
             for i, _ in enumerate(self.model.stem_models):  
                 self.plot.addTEMSoundings(
                     profile_idx=self.profile_idx, stem_model_idx=i,
@@ -682,6 +688,9 @@ class SectionPlotTab:
                 )
 
         if self.model.boreholes: 
+            
+            self.model.profiles[self.profile_idx]['elev']=np.ones_like(self.model.profiles[self.profile_idx]['y'])*10
+
             self.plot.addBoreholes(profile_idx=self.profile_idx, 
                                    ax=self.ax2, 
                                    print_msg=False)
