@@ -10,10 +10,18 @@ import pickle
 import threading
 import sys
 from matplotlib.widgets import RectangleSelector
+import os
 
-sys.path.append(r"C:\Users\pamcl\OneDrive - Danmarks Tekniske Universitet\Dokumenter\Projects\Python\profiler")
+# Get the absolute path of the 'src' directory relative to the current script location
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Path to 'gui/version2'
+project_root = os.path.abspath(os.path.join(script_dir, "../../src/profiler"))  # Move up two levels, then into 'src'
+
+# Append 'src' to sys.path
+sys.path.append(project_root)
+
 
 import model_handler
+
 
 padx = 2
 pady = 2

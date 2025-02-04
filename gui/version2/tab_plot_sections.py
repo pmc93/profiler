@@ -7,13 +7,20 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import numpy as np
 import pickle
+import os
 
 import sys
 
 padx=2
 pady=2
 
-sys.path.append(r"C:\Users\pamcl\OneDrive - Danmarks Tekniske Universitet\Dokumenter\Projects\Python\profiler")
+# Get the absolute path of the 'src' directory relative to the current script location
+script_dir = os.path.dirname(os.path.abspath(__file__))  # Path to 'gui/version2'
+project_root = os.path.abspath(os.path.join(script_dir, "../../src/profiler"))  # Move up two levels, then into 'src'
+
+# Append 'src' to sys.path
+sys.path.append(project_root)
+
 import model_handler
 
 class SectionPlotTab:
@@ -25,10 +32,10 @@ class SectionPlotTab:
         self.drawing_mode = False
         self.profile_idx = 0
         
-        
         self.color_scales = ["viridis", "jet", "rainbow", "bone"]#, "parula"]
         self.annotations = []  # Store annotations
-        pkl_path = r"c:\Users\pamcl\OneDrive - Danmarks Tekniske Universitet\Dokumenter\Projects\Python\Pytem0\profiler\data\tem\out1.pkl"
+        
+        pkl_path = os.path.abspath(os.path.join(script_dir, "../../data/out1.pkl")) 
 
         with open(pkl_path, "rb") as f:
                 self.model = pickle.load(f)
