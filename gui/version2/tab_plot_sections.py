@@ -36,6 +36,7 @@ class SectionPlotTab:
         self.annotations = []  # Store annotations
         
         pkl_path = os.path.abspath(os.path.join(script_dir, "../../data/out1.pkl")) 
+        pkl_path = os.path.abspath(r"C:\Users\pamcl\OneDrive - Danmarks Tekniske Universitet\Dokumenter\Projects\Python\Pytem0\profiler\data\boreholes/ot.pkl")
 
         with open(pkl_path, "rb") as f:
                 self.model = pickle.load(f)
@@ -43,6 +44,7 @@ class SectionPlotTab:
         self.plot = model_handler.Plot(self.model)
         #self.sections = np.unique(self.model.ttem_models[0]['line_num']).tolist()
         n = len(self.model.profiles)
+        print('n=', n)
         self.profiles = [str(i) for i in range(1, n + 1)]
         
         # Create two independent Matplotlib figures
@@ -526,15 +528,17 @@ class SectionPlotTab:
         """ Clears and redraws the plot with new limits """
         ax.clear()
 
-        ax.scatter(self.model.ttem_models['x'], self.model.ttem_models['y'], 
-                   c='cyan', s=0.5, label='tTEM Data')
+        if hasattr(self.model, 'ttem_models'):
+
+            ax.scatter(self.model.ttem_models['x'], self.model.ttem_models['y'], 
+                    c='cyan', s=0.5, label='tTEM Data')
             
-        if len(self.model.stem_models) != 0:
+        if hasattr(self.model, 'stem_models'):
             x_coords = [stem_model['x'] for stem_model in self.model.stem_models]
             y_coords = [stem_model['y'] for stem_model in self.model.stem_models]
             ax.scatter(x_coords, y_coords, c='k', marker='*', s=20, label='sTEM')
                  
-        if len(self.model.boreholes) != 0:
+        if hasattr(self.model, 'boreholes'):
             x_coords = [bh['x'] for bh in self.model.boreholes]
             y_coords = [bh['y'] for bh in self.model.boreholes]
             ax.scatter(x_coords, y_coords, c='orange', marker='*', s=20, label='Boreholes')

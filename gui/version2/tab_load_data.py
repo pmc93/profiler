@@ -308,10 +308,26 @@ class LoadDataTab:
             # Processing profiles
             total_profiles = len(self.model.profiles)
 
+            profiles = []
+
             for i, profile in enumerate(self.model.profiles):
-                self.model.createProfiles(interp_radius=float(self.int_rad_entry.get()),
-                                          profile_idx=[i],
-                                          model_spacing=False)
+
+                if hasattr(self.model, 'ttem_models'):
+                    print(self.model)
+                    self.model.createProfiles(interp_radius=float(self.int_rad_entry.get()),
+                                            profile_idx=[i],
+                                            model_spacing=False)
+                
+                else:
+                    profile = {}
+                    profile['distances'] = dists
+                    profile['x'] = x
+                    profile['y'] = y
+                    profile['xi'] = x
+                    profile['yi'] = y
+
+                    profile['geo_features'] = {}
+                    profiles.append(profile)
 
                 # Update progress bar
                 value = (i + 1) / total_profiles
@@ -322,7 +338,11 @@ class LoadDataTab:
 
                 print(f"\rProgress: {(i+1)/total_profiles*100:.2f}%", end='', flush=True)
 
+
+
             print('\nProfiles created, saving object.')
+
+            self.model.profiles = profiles
 
             self.save_object()
 
@@ -397,12 +417,12 @@ class LoadDataTab:
             x_vals, y_vals = zip(*self.current_line)
             self.ax.plot(x_vals, y_vals, color='r', marker='x')
 
-        if self.model.ttem_models: 
+        if hasattr(self.model, 'ttem_models'):
             self.ax.scatter(self.model.ttem_models['x'],
                             self.model.ttem_models['y'],
                             c='cyan', s=0.5, label='tTEM')
             
-        if self.model.stem_models: 
+        if hasattr(self.model, 'stem_models'):
             x_coords = [stem_model['x'] for stem_model in self.model.stem_models]
             y_coords = [stem_model['y'] for stem_model in self.model.stem_models]
             self.ax.scatter(x_coords, y_coords, c='k', marker='*', s=20, label='sTEM')
@@ -487,11 +507,13 @@ class LoadDataTab:
             with open(self.pkl_path, "rb") as f:
                 self.model = pickle.load(f)
             print(f"Object loaded from {self.pkl_path}")
-        
-        self.crs = self.model.ttem_models['epsg']
 
-        self.x = self.model.ttem_models['x']
-        self.y = self.model.ttem_models['y']
+        if hasattr(self.model, 'ttem_models'):
+        
+            self.crs = self.model.ttem_models['epsg']
+
+            self.x = self.model.ttem_models['x']
+            self.y = self.model.ttem_models['y']
         
         self.update_map()
         self.enable_buttons()
